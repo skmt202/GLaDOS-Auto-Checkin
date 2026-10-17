@@ -33,14 +33,17 @@ EXCHANGE_URL = "https://glados.rocks/api/user/exchange"
 HEADERS_BASE = {
     "origin": "https://glados.rocks",
     "referer": "https://glados.rocks/console/checkin",
-    "user-agent": (
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/153.0.0.0 Safari/537.36"
-    ),
-    # 注意：使用 requests 的 json= 参数时会自动设置 Content-Type: application/json，
-    # 此处无需（也不应）手动设置 content-type，否则与 requests 默认行为重复。
+    "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "sec-ch-ua": '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"macOS"',
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "zh-CN,zh;q=0.9,en;q=0.8",
 }
+# 注意：如果下面这行签到仍然提示机器检测，请将 "glados.rocks" 改回 "glados.cloud" 尝试
 PAYLOAD = {"token": "glados.rocks"}
 TIMEOUT = (5, 15)  # (连接超时, 读取超时)
 MAX_RETRY = 3
